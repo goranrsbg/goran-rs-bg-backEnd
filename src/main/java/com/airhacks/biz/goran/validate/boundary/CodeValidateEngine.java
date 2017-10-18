@@ -1,7 +1,7 @@
 
 package com.airhacks.biz.goran.validate.boundary;
 
-import com.airhacks.biz.goran.validate.beans.ValidateEJB;
+import com.airhacks.biz.goran.validate.sqlvalidation.ValidateEJB;
 import com.airhacks.biz.goran.validate.control.CodeValidator;
 import javax.ejb.EJB;
 import javax.json.Json;
