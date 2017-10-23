@@ -2,7 +2,7 @@
 package com.airhacks.biz.goran.validate.sqlvalidation;
 
 import javax.ejb.LocalBean;
-import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.ParameterMode;
 import javax.persistence.PersistenceContext;
@@ -12,7 +12,7 @@ import javax.persistence.StoredProcedureQuery;
  *
  * @author Goran
  */
-@Stateful
+@Stateless
 @LocalBean
 public class ValidateEJB {
     
