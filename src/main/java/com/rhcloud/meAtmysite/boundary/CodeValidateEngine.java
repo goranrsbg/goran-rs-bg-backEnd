@@ -25,6 +25,12 @@ public class CodeValidateEngine {
     @EJB
     private ValidateEJB validate;
 
+    /**
+     *
+     * @param key
+     * @param headers
+     * @return
+     */
     @POST
     @Produces("aplication/json")
     public JsonObject data(String key, @Context HttpHeaders headers) {
