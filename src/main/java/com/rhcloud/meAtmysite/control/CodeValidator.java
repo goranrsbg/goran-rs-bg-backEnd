@@ -19,23 +19,16 @@ public class CodeValidator {
     private static final char SPACE = ' ';
     private static final char DEFAULT = '?';
     private static final char MASK = '_';
-    private static final String KLJUC = "klju?";
-    private static final String KLJUCH = "kljuch"; // openshift oc console can not accept ?
-    
     private final StringBuilder sb;
     
     public CodeValidator() {
         sb = new StringBuilder(MAX_CODE_SIZE);
     }
-    
+   
     public String createValidKey(final String code,final String auth) {
         sb.setLength(0);
         if(auth.equals(AUTHORIZATION_CODE) && code.length() < MAX_CODE_SIZE) {
-            if(code.equals(KLJUC)) {
-                sb.append(KLJUCH);
-            } else {
-                sb.append(code);
-            }
+            sb.append(code);
             char c;
             for(int i = 0; i < sb.length(); i++) {
                 c = sb.charAt(i);
@@ -50,7 +43,6 @@ public class CodeValidator {
         } else {
             sb.append(CODE_NONE);
         }
-        
         return sb.toString();
     }
     

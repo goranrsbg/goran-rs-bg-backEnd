@@ -1,8 +1,8 @@
 
 package com.rhcloud.meAtmysite.boundary;
 
-import com.rhcloud.meAtmysite.sqlvalidation.ValidateEJB;
 import com.rhcloud.meAtmysite.control.CodeValidator;
+import com.rhcloud.meAtmysite.sqlvalidation.ValidateEJB;
 import javax.ejb.EJB;
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -23,7 +23,7 @@ public class CodeValidateEngine {
     private CodeValidator cv;
     
     @EJB
-    private ValidateEJB validate;
+    private ValidateEJB validator;
 
     /**
      *
@@ -33,12 +33,12 @@ public class CodeValidateEngine {
      */
     @POST
     @Produces("aplication/json")
-    public JsonObject data(String key, @Context HttpHeaders headers) {
-        System.out.println(headers);
-        System.out.println(key);
+    public JsonObject data(String key, @Context HttpHeaders headers) {    
         key = cv.createValidKey(key, headers.getHeaderString("authorization"));
-        System.out.println("----- " + key + " -----");
-        return createResponse("Skynet", validate.validateKey(key));      
+        System.out.println(key);
+        String response = validator.validateKey(key);
+        System.out.println(response);
+        return createResponse("Skynet", response);      
     }
     
     private JsonObject createResponse(String name, String value) {
