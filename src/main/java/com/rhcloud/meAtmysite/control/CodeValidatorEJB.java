@@ -2,15 +2,15 @@
 package com.rhcloud.meAtmysite.control;
 
 import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 
 /**
  *
  * @author Goran
  */
-@Stateless
+@Singleton
 @LocalBean
-public class CodeValidator {
+public class CodeValidatorEJB {
     
     private static final String AUTHORIZATION_CODE = "r2-d2aNdC-3pO";
     private static final String CODE_NONE = "invalid";
@@ -21,7 +21,7 @@ public class CodeValidator {
     private static final char MASK = '_';
     private final StringBuilder sb;
     
-    public CodeValidator() {
+    public CodeValidatorEJB() {
         sb = new StringBuilder(MAX_CODE_SIZE);
     }
    

@@ -3,13 +3,13 @@ package com.rhcloud.meAtmysite.sqlvalidation;
 import java.util.Random;
 import javax.annotation.PostConstruct;
 import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 
 /**
  *
  * @author Goran
  */
-@Stateless
+@Singleton
 @LocalBean
 public class ValidateEJB {
 
